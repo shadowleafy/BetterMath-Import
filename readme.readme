@@ -1,0 +1,6 @@
+<!> READ ME! <!>
+This import is WIP! I'll be updating it when I can.
+To use it, copy+paste the "bettermath.py" file into a file in your repl called "bettermath.py", then use "import bettermath". 
+If you would like to import certain functions
+of bettermath, use import bettermath.module.
+<!> READ ME! <!>
