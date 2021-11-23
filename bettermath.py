@@ -1,6 +1,6 @@
 import os
 import shutil
-version = "a1.0.0"
+version = "a1.0.1"
 class debug():
   def crash():
     exit()
