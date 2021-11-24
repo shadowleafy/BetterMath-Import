@@ -1,6 +1,6 @@
 import os
 import shutil
-version = "a1.0.2"
+version = "a1.0.3"
 class debug():
   def crash():
     exit()
@@ -19,30 +19,42 @@ class debug():
 
 class stats():
   def weightedmean(*weightnum: tuple):
-    result = 0
-    for i in weightnum:
-      result += i[0]*i[1]
-    result /= len(weightnum)
-    return result
+    try:
+      result = 0
+      for i in weightnum:
+        result += i[0]*i[1]
+      result /= len(weightnum)
+      return result
+    except:
+      raise TypeError("The given dataset must be tuples of length 2!")
   def amean(*numbers: float):
-    x = 0.0
-    for i in range (len(numbers)):
-      x += numbers[i]
-    x /= len(numbers)
-    return x
+    try:
+      x = 0.0
+      for i in range (len(numbers)):
+        x += numbers[i]
+      x /= len(numbers)
+      return x
+    except:
+      raise TypeError("The given dataset must be either integers or floats!")
   def gmean(*numbers: float):
-    x = 1.0
-    for i in range(len(numbers)):
-      x *= numbers[i]
-    length = float(len(numbers))
-    x = x**(1/length)
+    try:
+      x = 1.0
+      for i in range(len(numbers)):
+        x *= numbers[i]
+      length = float(len(numbers))
+      x = x**(1/length)
+    except:
+      raise TypeError("The given dataset must have a non-negative product!")
     return x
   def hmean(*numbers: float):
-    x = 0.0
-    for i in range(len(numbers)):
-      x += 1/numbers[i]
-    x /= len(numbers)
-    x **= -1
+    try:
+      x = 0.0
+      for i in range(len(numbers)):
+        x += 1/numbers[i]
+      x /= len(numbers)
+      x **= -1
+    except:
+      raise TypeError("The given dataset must be a set of nonzero integers with a nonzero sum!")
     return x
   def agmean(a0, g0, tolerance=1e-10):
     an, gn = (a0 + g0) / 2.0, (a0 * g0)**0.5
@@ -64,6 +76,7 @@ class stats():
     
     return med
   def mode(*numbers):
+    
     currentrecord = 0
     numberofnumbers = {}
     for i in numbers:
