@@ -1,6 +1,6 @@
 import os
 import shutil
-version = "a1.0.3"
+version = "a1.0.4"
 class debug():
   def crash():
     exit()
@@ -199,6 +199,9 @@ class basic():
       return number
     else:
       return 0-number
+class accuconstants():
+  def e(accuracy=1000):
+    return (1+1/accuracy)**accuracy
   
 class help():
   def help():
